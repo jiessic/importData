@@ -19,6 +19,8 @@ class DbConnect(object):
         sql = "insert into %s%s values %s" % (table, "(" + field + ")", "(" + values + ")")
         try:
             self.cursor.execute(sql)
+            print(self.cursor.rownumber)
+            result = self.cursor.fetchone()
             self.conn.commit()
             return True
         except:
